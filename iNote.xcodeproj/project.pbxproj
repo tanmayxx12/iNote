@@ -6,17 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		117DB2A52D4D665200B9A002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DB2A22D4D665200B9A002 /* ContentView.swift */; };
+		117DB2A62D4D665200B9A002 /* iNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DB2A32D4D665200B9A002 /* iNoteApp.swift */; };
+		117DB2A72D4D665200B9A002 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117DB29F2D4D665200B9A002 /* Preview Assets.xcassets */; };
+		117DB2A82D4D665200B9A002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117DB2A12D4D665200B9A002 /* Assets.xcassets */; };
+		117DB2AD2D4D669400B9A002 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DB2AC2D4D669400B9A002 /* RootView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		117DB28E2D4D65C100B9A002 /* iNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		117DB29F2D4D665200B9A002 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		117DB2A12D4D665200B9A002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		117DB2A22D4D665200B9A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		117DB2A32D4D665200B9A002 /* iNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNoteApp.swift; sourceTree = "<group>"; };
+		117DB2AC2D4D669400B9A002 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		117DB2902D4D65C100B9A002 /* iNote */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iNote;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		117DB28B2D4D65C100B9A002 /* Frameworks */ = {
@@ -32,7 +37,7 @@
 		117DB2852D4D65C100B9A002 = {
 			isa = PBXGroup;
 			children = (
-				117DB2902D4D65C100B9A002 /* iNote */,
+				117DB2A42D4D665200B9A002 /* iNote */,
 				117DB28F2D4D65C100B9A002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +48,66 @@
 				117DB28E2D4D65C100B9A002 /* iNote.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		117DB2A02D4D665200B9A002 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				117DB29F2D4D665200B9A002 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		117DB2A42D4D665200B9A002 /* iNote */ = {
+			isa = PBXGroup;
+			children = (
+				117DB2AF2D4D6D8800B9A002 /* Components */,
+				117DB2AE2D4D6C1200B9A002 /* Managers */,
+				117DB2AB2D4D667C00B9A002 /* Model */,
+				117DB2AA2D4D665A00B9A002 /* Views */,
+				117DB2A92D4D665700B9A002 /* ViewModel */,
+				117DB2A02D4D665200B9A002 /* Preview Content */,
+				117DB2A12D4D665200B9A002 /* Assets.xcassets */,
+				117DB2A22D4D665200B9A002 /* ContentView.swift */,
+				117DB2A32D4D665200B9A002 /* iNoteApp.swift */,
+			);
+			path = iNote;
+			sourceTree = "<group>";
+		};
+		117DB2A92D4D665700B9A002 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		117DB2AA2D4D665A00B9A002 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				117DB2AC2D4D669400B9A002 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		117DB2AB2D4D667C00B9A002 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		117DB2AE2D4D6C1200B9A002 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		117DB2AF2D4D6D8800B9A002 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +124,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				117DB2902D4D65C100B9A002 /* iNote */,
 			);
 			name = iNote;
 			packageProductDependencies = (
@@ -109,6 +171,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117DB2A72D4D665200B9A002 /* Preview Assets.xcassets in Resources */,
+				117DB2A82D4D665200B9A002 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117DB2A52D4D665200B9A002 /* ContentView.swift in Sources */,
+				117DB2A62D4D665200B9A002 /* iNoteApp.swift in Sources */,
+				117DB2AD2D4D669400B9A002 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
