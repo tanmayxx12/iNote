@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct LogInView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @StateObject private var viewModel = LogInViewModel()
     @State private var isSignUp: Bool = false
     
     var body: some View {
@@ -37,7 +36,7 @@ struct LogInView: View {
                         .font(.title3)
                         .foregroundStyle(.purple)
                         .padding(.leading, 6)
-                    TextField("Email...", text: $email)
+                    TextField("Email...", text: $viewModel.email)
                         .font(.headline)
                 }
                 .frame(height: 55)
@@ -51,7 +50,7 @@ struct LogInView: View {
                         .font(.title3)
                         .foregroundStyle(.purple)
                         .padding(.leading, 6)
-                    SecureField("Password...", text: $password)
+                    SecureField("Password...", text: $viewModel.password)
                         .font(.headline)
                 }
                 .frame(height: 55)

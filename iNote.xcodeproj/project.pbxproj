@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		116733222D4E5B5500BC1E9A /* iNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116733212D4E5B5500BC1E9A /* iNoteButton.swift */; };
 		116733242D4E6CC400BC1E9A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116733232D4E6CC400BC1E9A /* SignUpView.swift */; };
+		116733262D4EBB6E00BC1E9A /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116733252D4EBB6E00BC1E9A /* LogInViewModel.swift */; };
 		117DB2A52D4D665200B9A002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DB2A22D4D665200B9A002 /* ContentView.swift */; };
 		117DB2A62D4D665200B9A002 /* iNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DB2A32D4D665200B9A002 /* iNoteApp.swift */; };
 		117DB2A72D4D665200B9A002 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117DB29F2D4D665200B9A002 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		116733212D4E5B5500BC1E9A /* iNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNoteButton.swift; sourceTree = "<group>"; };
 		116733232D4E6CC400BC1E9A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		116733252D4EBB6E00BC1E9A /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		117DB28E2D4D65C100B9A002 /* iNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117DB29F2D4D665200B9A002 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		117DB2A12D4D665200B9A002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		117DB2A92D4D665700B9A002 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				116733252D4EBB6E00BC1E9A /* LogInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116733262D4EBB6E00BC1E9A /* LogInViewModel.swift in Sources */,
 				117DB2A52D4D665200B9A002 /* ContentView.swift in Sources */,
 				117DB2A62D4D665200B9A002 /* iNoteApp.swift in Sources */,
 				11AAD9812D4E169A00AC9FC9 /* LogInView.swift in Sources */,
