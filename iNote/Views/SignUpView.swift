@@ -31,64 +31,7 @@ struct SignUpView: View {
                 .padding(.top, 20)
                 .padding()
                 
-                VStack {
-                    HStack {
-                        Image(systemName: "person")
-                            .font(.title3)
-                            .foregroundStyle(.purple)
-                            .padding(.leading, 6)
-                        TextField("Full Name", text: $name)
-                            .font(.headline)
-                    }
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(.black.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 12)
-                    
-                    
-                    HStack {
-                        Image(systemName: "envelope")
-                            .font(.title3)
-                            .foregroundStyle(.purple)
-                            .padding(.leading, 6)
-                        TextField("Email", text: $email)
-                            .font(.headline)
-                    }
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(.black.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 12)
-                    
-                    HStack {
-                        Image(systemName: "lock")
-                            .font(.title3)
-                            .foregroundStyle(.purple)
-                            .padding(.leading, 6)
-                        TextField("Password", text: $password)
-                            .font(.headline)
-                    }
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(.black.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 12)
-                    
-                    HStack {
-                        Image(systemName: "lock")
-                            .font(.title3)
-                            .foregroundStyle(.purple)
-                            .padding(.leading, 6)
-                        SecureField("Confirm Password", text: $confirmPassword)
-                            .font(.headline)
-                    }
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(.black.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 12)
-                }
+                fieldsView
                 
                 Text("By Signing Up , you agree to our Terms and Conditions and Privacy Policy")
                     .multilineTextAlignment(.leading)
@@ -101,7 +44,7 @@ struct SignUpView: View {
                     Text("Already have an account?")
                     Text("Log In")
                         .underline()
-                        .foregroundStyle(.purple)  
+                        .foregroundStyle(.purple)
                 }
                 
             }
@@ -115,4 +58,68 @@ struct SignUpView: View {
 
 #Preview {
     SignUpView()
+}
+
+// MARK: TextFields and SecureFields
+extension SignUpView {
+    var fieldsView: some View {
+        VStack {
+            HStack {
+                Image(systemName: "person")
+                    .font(.title3)
+                    .foregroundStyle(.purple)
+                    .padding(.leading, 6)
+                TextField("Full Name", text: $name)
+                    .font(.headline)
+            }
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(.black.opacity(0.1))
+            .cornerRadius(10)
+            .padding(.horizontal, 12)
+            
+            
+            HStack {
+                Image(systemName: "envelope")
+                    .font(.title3)
+                    .foregroundStyle(.purple)
+                    .padding(.leading, 6)
+                TextField("Email", text: $email)
+                    .font(.headline)
+            }
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(.black.opacity(0.1))
+            .cornerRadius(10)
+            .padding(.horizontal, 12)
+            
+            HStack {
+                Image(systemName: "lock")
+                    .font(.title3)
+                    .foregroundStyle(.purple)
+                    .padding(.leading, 6)
+                TextField("Password", text: $password)
+                    .font(.headline)
+            }
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(.black.opacity(0.1))
+            .cornerRadius(10)
+            .padding(.horizontal, 12)
+            
+            HStack {
+                Image(systemName: "lock")
+                    .font(.title3)
+                    .foregroundStyle(.purple)
+                    .padding(.leading, 6)
+                SecureField("Confirm Password", text: $confirmPassword)
+                    .font(.headline)
+            }
+            .frame(height: 55)
+            .frame(maxWidth: .infinity)
+            .background(.black.opacity(0.1))
+            .cornerRadius(10)
+            .padding(.horizontal, 12)
+        }
+    }
 }
