@@ -13,6 +13,7 @@ struct iNoteButton: View {
     var iconName: String?
     var iconImage: Image?
     var action: () -> ()
+    var isSignUpButton: Bool = false
     
     
     var body: some View {
@@ -36,12 +37,12 @@ struct iNoteButton: View {
                 
                 Text(label)
                     .bold()
-                    .foregroundStyle(.black)
+                    .foregroundStyle(isSignUpButton ? Color.white : Color.black)
             }
         }
         .frame(height: 55)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(isSignUpButton ? Color.purple : Color.white)
         .cornerRadius(10)
         .padding(.horizontal, 12)
         .shadow(radius: 4, x: 0, y: 2)

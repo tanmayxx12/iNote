@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct LogInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var isSignUp: Bool = false
     
     var body: some View {
         
@@ -76,6 +77,7 @@ struct LoginView: View {
             VStack {
                 iNoteButton(label: "Sign Up With Email", iconName: "envelope") {
                     // logic for when the button is tapped
+                    isSignUp.toggle()
                 }
                 
                 iNoteButton(label: "Sign In With Google", iconImage: Image("googleLogo")) {
@@ -92,10 +94,15 @@ struct LoginView: View {
             
         }
         .padding(6)
+        .sheet(isPresented: $isSignUp) {
+            SignUpView()
+                .presentationDragIndicator(.visible)
+        }
+        
         
     }
 }
 
 #Preview {
-    LoginView()
+    LogInView()
 }
