@@ -23,7 +23,7 @@ final class GoogleSignInViewModel: ObservableObject {
             guard let clientID = FirebaseApp.app()?.options.clientID else {
                 throw GoogleAuthError.configurationError
             }
-            let config = GIDConfiguration(clientID: clientID)
+            _ = GIDConfiguration(clientID: clientID)
             
             // Step.2: Get the root view controller:
             /*

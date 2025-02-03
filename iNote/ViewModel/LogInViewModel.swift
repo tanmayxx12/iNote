@@ -1,56 +1,72 @@
-////
-////  LogInViewModel.swift
-////  iNote
-////
-////  Created by Tanmay . on 02/02/25.
-////
 //
-//import FirebaseAuth
-//import Foundation
+//  LogInViewModel.swift
+//  iNote
 //
-//// Creating a LogInViewModel:
+//  Created by Tanmay . on 02/02/25.
 //
-//@MainActor
-//final class LogInViewModel: ObservableObject {
-//    @Published var email: String = ""
-//    @Published var password: String = ""
-//    @Published var confirmPassword: String = ""
-//    @Published var errorMessage: String = ""
-//    
-//    // MARK: Validation
-//    func validateCredentials() -> Bool {
-//        guard !email.isEmpty, email.contains("@"), email.contains(".") else {
-//            errorMessage = "Please enter a valid email address."
-//            return false
-//        }
-//        
-//        guard password.count >= 8 else {
-//            errorMessage = "Password must be at least 8 characters."
-//            return false
-//        }
-//        
-////        guard password.rangeOfCharacter(from: .uppercaseLetters) != nil,
-////              password.rangeOfCharacter(from: .symbols) != nil else {
-////            errorMessage = "Password must contain at least one uppercase letter and one special character."
-////            return false
-////        }
-//        
-//        guard password == confirmPassword else {
-//            errorMessage = "Passwords do not match."
-//            return false
-//        }
-//        
-//        errorMessage = ""
-//        return true
-//    }
-//    
-//    // MARK: Log In
-//    func login() {
-//        guard validateCredentials() else {
-//            return
-//        }
-//        Auth.auth().signIn(withEmail: email, password: password)
-//    }
-//    
-//    
-//}
+
+import FirebaseAuth
+import Foundation
+
+// Creating a LogInViewModel:
+
+@MainActor
+final class LogInViewModel: ObservableObject {
+    @Published var email: String = ""
+    @Published var password: String = ""
+    @Published var errorMessage: String?
+    @Published var isAuthenticated: Bool = false
+    
+    func logInUser() async  {
+        do {
+            // validate input:
+            guard !email.isEmpty, !password.isEmpty else {
+                throw LogInAuthError.emptyFields
+            }
+            
+            // Firebase Auth Sign In:
+            let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            guard let user = Auth.auth().currentUser, user.uid == authDataResult.user.uid else {
+                throw LogInAuthError.userNotFound
+            }
+            
+            // User is authenticated successfully:
+            isAuthenticated = true
+            errorMessage = nil
+        } catch {
+            await MainActor.run {
+                handleError(error)
+            }
+        }
+    }
+    
+    private func handleError(_ error: Error) {
+        if let authError = error as? LogInAuthError {
+            errorMessage = authError.description
+        } else {
+            errorMessage = "Unknown error occurred: \(error.localizedDescription)"
+        }
+        isAuthenticated = false
+    }
+    
+    
+    enum LogInAuthError: Error, CustomStringConvertible {
+        case emptyFields
+        case userNotFound
+        case invalidCredentials
+        
+        var description: String {
+            switch self {
+            case .emptyFields:
+                return "Please fill in all the fields."
+            case .userNotFound:
+                return "User not found."
+            case .invalidCredentials:
+                return "Invalid email or password."
+            }
+        }
+        
+    }
+    
+    
+}

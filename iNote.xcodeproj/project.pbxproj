@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				11B018952D4F625500B5802D /* Info.plist */,
-				11AAD9822D4E1BFA00AC9FC9 /* Extensions */,
+				11AAD9822D4E1BFA00AC9FC9 /* AppState */,
 				117DB2AF2D4D6D8800B9A002 /* Components */,
 				117DB2AB2D4D667C00B9A002 /* Models */,
 				117DB2AA2D4D665A00B9A002 /* Views */,
@@ -139,11 +139,11 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		11AAD9822D4E1BFA00AC9FC9 /* Extensions */ = {
+		11AAD9822D4E1BFA00AC9FC9 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Extensions;
+			path = AppState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

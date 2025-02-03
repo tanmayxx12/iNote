@@ -39,13 +39,22 @@ import SwiftUI
  */
 
 @main
-struct FirebaseTutApp: App {
+struct iNoteApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var appStateVM = LogInViewModel()
     
     var body: some Scene {
         WindowGroup {
-            LogInView()
+            if appStateVM.isAuthenticated {
+                RootView()
+                    .environmentObject(appStateVM)
+            } else {
+                LogInView()
+                    .environmentObject(appStateVM)
+            }
+            
+            
         }
     }
 }
