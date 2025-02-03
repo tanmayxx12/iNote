@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct LogInView: View {
-    @StateObject private var logInVM = LogInViewModel()
+    @EnvironmentObject var logInVM: LogInViewModel
     @StateObject private var googleVM = GoogleSignInViewModel()
     
     @State private var isSignUp: Bool = false
-    @State private var shouldNavigate: Bool = false // State for triggering navigation
     
     var body: some View {
         
@@ -73,8 +72,7 @@ struct LogInView: View {
                     
                     iNoteButton(label: "Log In") {
                         Task {
-                            await logInVM.logInUser()
-                            shouldNavigate = logInVM.isAuthenticated
+                            await logInVM.logInUser() 
                         }
                     }
                     .padding(.top)
@@ -118,9 +116,6 @@ struct LogInView: View {
                 }
                 
             }
-//            .navigationDestination(isPresented: $shouldNavigate) {
-//                RootView()
-//            }
         }
        
     }
@@ -128,4 +123,5 @@ struct LogInView: View {
 
 #Preview {
     LogInView()
+        .environmentObject(LogInViewModel())
 }

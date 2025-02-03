@@ -17,6 +17,12 @@ final class LogInViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isAuthenticated: Bool = false
     
+    init() {
+        if Auth.auth().currentUser != nil {
+            isAuthenticated = true 
+        }
+    }
+    
     func logInUser() async  {
         do {
             // validate input:

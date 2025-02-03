@@ -25,6 +25,8 @@
 		11B018972D4F7A7200B5802D /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B018962D4F7A7200B5802D /* LogInViewModel.swift */; };
 		11F3ED0D2D50A7DF00FE8E7D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3ED0C2D50A7DF00FE8E7D /* SignUpViewModel.swift */; };
 		11F3ED112D50BDC900FE8E7D /* GoogleSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3ED102D50BDC900FE8E7D /* GoogleSignInViewModel.swift */; };
+		11F3ED132D50DAED00FE8E7D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3ED122D50DAED00FE8E7D /* AppState.swift */; };
+		11F3ED152D50EC9E00FE8E7D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F3ED142D50EC9E00FE8E7D /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		11B018962D4F7A7200B5802D /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		11F3ED0C2D50A7DF00FE8E7D /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		11F3ED102D50BDC900FE8E7D /* GoogleSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewModel.swift; sourceTree = "<group>"; };
+		11F3ED122D50DAED00FE8E7D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		11F3ED142D50EC9E00FE8E7D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				117DB2AC2D4D669400B9A002 /* RootView.swift */,
 				11AAD9802D4E169900AC9FC9 /* LogInView.swift */,
 				116733232D4E6CC400BC1E9A /* SignUpView.swift */,
+				11F3ED142D50EC9E00FE8E7D /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 		11AAD9822D4E1BFA00AC9FC9 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
+				11F3ED122D50DAED00FE8E7D /* AppState.swift */,
 			);
 			path = AppState;
 			sourceTree = "<group>";
@@ -235,8 +241,10 @@
 				117DB2A62D4D665200B9A002 /* iNoteApp.swift in Sources */,
 				11AAD9812D4E169A00AC9FC9 /* LogInView.swift in Sources */,
 				11B018972D4F7A7200B5802D /* LogInViewModel.swift in Sources */,
+				11F3ED132D50DAED00FE8E7D /* AppState.swift in Sources */,
 				11F3ED0D2D50A7DF00FE8E7D /* SignUpViewModel.swift in Sources */,
 				117DB2AD2D4D669400B9A002 /* RootView.swift in Sources */,
+				11F3ED152D50EC9E00FE8E7D /* SettingsView.swift in Sources */,
 				116733242D4E6CC400BC1E9A /* SignUpView.swift in Sources */,
 				116733222D4E5B5500BC1E9A /* iNoteButton.swift in Sources */,
 			);

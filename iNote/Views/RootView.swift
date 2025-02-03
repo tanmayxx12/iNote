@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject var AppState: LogInViewModel
     @State private var searchText: String = ""
+    @State private var isShowingSettingsView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -24,15 +26,23 @@ struct RootView: View {
                         }
                     }
                 }
-                .listStyle(.sidebar)
             }
             .navigationTitle("Folders")
             .searchable(text: $searchText)
             .toolbar {
+        
                 ToolbarItem(placement: .topBarTrailing) {
                     EditButton()
-                        .font(.title3)
                         .tint(.purple)
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        isShowingSettingsView = true
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                            .tint(.purple)
+                    }
                 }
                 
                 ToolbarItemGroup(placement: .bottomBar) {
@@ -58,10 +68,16 @@ struct RootView: View {
                 }
                 
             }
+            .navigationDestination(isPresented: $isShowingSettingsView) {
+                SettingsView()
+            }
+            .navigationSplitViewStyle(.prominentDetail)
+            
         }
     }
 }
 
 #Preview {
     RootView()
+        .environmentObject(LogInViewModel())
 }

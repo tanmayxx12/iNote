@@ -42,19 +42,17 @@ import SwiftUI
 struct iNoteApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var appStateVM = LogInViewModel()
+    @StateObject private var logInVM = LogInViewModel()
     
     var body: some Scene {
         WindowGroup {
-            if appStateVM.isAuthenticated {
+            if logInVM.isAuthenticated {
                 RootView()
-                    .environmentObject(appStateVM)
+                    .environmentObject(logInVM)
             } else {
                 LogInView()
-                    .environmentObject(appStateVM)
+                    .environmentObject(logInVM)
             }
-            
-            
         }
     }
 }
