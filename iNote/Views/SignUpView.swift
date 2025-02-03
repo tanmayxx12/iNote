@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Environment(\.dismiss) var dismiss
-    
-    @State private var email: String = ""
-    @State private var name: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
+   
+    @StateObject private var emailVM = SignUpViewModel()
     
     
     var body: some View {
@@ -33,12 +29,20 @@ struct SignUpView: View {
                 
                 fieldsView
                 
-                Text("By Signing Up , you agree to our Terms and Conditions and Privacy Policy")
+                Text("By Signing Up, you agree to our Terms and Conditions and Privacy Policy")
                     .multilineTextAlignment(.leading)
                 
                 iNoteButton(label: "Sign Up", action: {
-                    // Logic for when the button is tapped
+                    Task {
+                        await emailVM.signUpWithEmail()
+                    }
                 }, isSignUpButton: true)
+                
+                if emailVM.errorMessage != nil {
+                    Text(emailVM.errorMessage ?? "")
+                        .font(.headline)
+                        .foregroundStyle(.red)
+                }
                 
                 HStack {
                     Text("Already have an account?")
@@ -48,11 +52,9 @@ struct SignUpView: View {
                 }
                 
             }
+            .padding()
             
-          
         }
-        
-        
     }
 }
 
@@ -69,8 +71,9 @@ extension SignUpView {
                     .font(.title3)
                     .foregroundStyle(.purple)
                     .padding(.leading, 6)
-                TextField("Full Name", text: $name)
+                TextField("Full Name", text: $emailVM.name)
                     .font(.headline)
+                    .autocorrectionDisabled()
             }
             .frame(height: 55)
             .frame(maxWidth: .infinity)
@@ -84,8 +87,10 @@ extension SignUpView {
                     .font(.title3)
                     .foregroundStyle(.purple)
                     .padding(.leading, 6)
-                TextField("Email", text: $email)
+                TextField("Email", text: $emailVM.email)
                     .font(.headline)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
             }
             .frame(height: 55)
             .frame(maxWidth: .infinity)
@@ -98,8 +103,10 @@ extension SignUpView {
                     .font(.title3)
                     .foregroundStyle(.purple)
                     .padding(.leading, 6)
-                TextField("Password", text: $password)
+                SecureField("Password", text: $emailVM.password)
                     .font(.headline)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
             }
             .frame(height: 55)
             .frame(maxWidth: .infinity)
@@ -112,8 +119,11 @@ extension SignUpView {
                     .font(.title3)
                     .foregroundStyle(.purple)
                     .padding(.leading, 6)
-                SecureField("Confirm Password", text: $confirmPassword)
+                SecureField("Confirm Password", text: $emailVM
+                    .confirmPassword)
                     .font(.headline)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
             }
             .frame(height: 55)
             .frame(maxWidth: .infinity)
