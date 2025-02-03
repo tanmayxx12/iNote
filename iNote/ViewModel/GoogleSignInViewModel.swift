@@ -17,7 +17,7 @@ import GoogleSignInSwift
 final class GoogleSignInViewModel: ObservableObject {
     @Published var errorMessage: String?
     
-    func signInWthGoogle() async throws {
+    func signInWthGoogle() async {
         do {
             // 1. Configure Google Sign In:
             guard let clientID = FirebaseApp.app()?.options.clientID else {
@@ -26,10 +26,17 @@ final class GoogleSignInViewModel: ObservableObject {
             let config = GIDConfiguration(clientID: clientID)
             
             // Step.2: Get the root view controller:
-            let scene =  UIApplication.shared.connectedScenes.first as? UIWindowScene
-            guard let rootViewController =  scene?.windows.first?.rootViewController else {
+            /*
+             let scene =  UIApplication.shared.connectedScenes.first as? UIWindowScene
+             guard let rootViewController =  scene?.windows.first?.rootViewController else {
+                 throw GoogleAuthError.viewControllerError
+             }
+             */
+            guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+                  let rootViewController = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController else {
                 throw GoogleAuthError.viewControllerError
             }
+            
             
             // Step.3: Start Google Sign-In flow:
             let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)

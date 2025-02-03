@@ -88,7 +88,7 @@ struct LogInView: View {
                     
                     iNoteButton(label: "Sign In With Google", iconImage: Image("googleLogo")) {
                         Task {
-                            try await googleVM.signInWthGoogle()
+                            await googleVM.signInWthGoogle()
                         }
                     }
                     
